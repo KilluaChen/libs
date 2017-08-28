@@ -6,7 +6,7 @@ if(typeof jQuery == 'undefined') {
     var s = document.createElement("script");
     s.type = "text/javascript";
     s.src = "https://cdn.bootcss.com/jquery/2.1.4/jquery.js";
-    document.body.appendChild(s);
+    document.getElementsByTagName('HEAD').item(0).appendChild(s);
 }
 
 var prev = '';
