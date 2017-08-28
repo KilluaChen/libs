@@ -1,6 +1,14 @@
 /**
  * Created by killua on 17/8/28.
  */
+
+if(typeof jQuery == 'undefined') {
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "https://cdn.bootcss.com/jquery/2.1.4/jquery.js";
+    document.body.appendChild(s);
+}
+
 var prev = '';
 var cs = 0;
 dl();
