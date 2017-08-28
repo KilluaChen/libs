@@ -2,16 +2,18 @@
  * Created by killua on 17/8/28.
  */
 
-if(typeof jQuery == 'undefined') {
+if (typeof jQuery == 'undefined') {
     var s = document.createElement("script");
     s.type = "text/javascript";
     s.src = "https://cdn.bootcss.com/jquery/2.1.4/jquery.js";
     document.getElementsByTagName('HEAD').item(0).appendChild(s);
+    setTimeout('dl()', 100);
+} else {
+    dl();
 }
 
 var prev = '';
 var cs = 0;
-dl();
 function dl() {
     var is_return = false;
     var len = $('.x-list-plain').length - 1;
