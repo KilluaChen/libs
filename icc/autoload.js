@@ -43,17 +43,23 @@ function dl() {
     check()
 }
 function check(len) {
+    //检查是否已到最后一页
+    var curr_len = $('.x-form-trigger-input-cell input').length;
+    var max_len = $('.x-toolbar-text').length;
+    var curr = $('.x-form-trigger-input-cell input')[curr_len - 1].value;
+    var max = $('.x-toolbar-text')[max_len - 1].innerHTML.replace('of ','');
     var cu = new Date().getTime() / 1000;
-    if (cu > cs + 5) {
-        console.log('超过5秒,自动提交');
-        var i_len = $('.x-btn-default-small-noicon').length;
-        $('.x-btn-default-small-noicon')[i_len - 1].click();
-        return false
-    }
     var len = $('.x-list-plain').length - 1;
     var $c = $($('.x-list-plain')[len]).children();
+    console.log('当前页:'+curr + ',总页数:' + max);
     setTimeout(function () {
         if ($c[0].innerHTML == prev) {
+            if (curr == max) {
+                var i_len = $('.x-btn-default-small-noicon').length;
+                $('.x-btn-default-small-noicon')[i_len - 1].click();
+                console.log('已到最后一页,自动提交');
+                return false;
+            }
             check()
         } else {
             console.log('new:' + $c[0].innerHTML);
