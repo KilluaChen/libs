@@ -44,8 +44,10 @@ function dl() {
 }
 function check(len) {
     var cu = new Date().getTime() / 1000;
-    if (cu > cs + 10) {
-        console.log('超过10秒');
+    if (cu > cs + 5) {
+        console.log('超过5秒,自动提交');
+        var i_len = $('.x-btn-default-small-noicon').length;
+        $('.x-btn-default-small-noicon')[i_len - 1].click();
         return false
     }
     var len = $('.x-list-plain').length - 1;
